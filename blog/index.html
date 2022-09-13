@@ -2,7 +2,7 @@
 layout: default
 title: blog
 pagination:
-  enabled: true
+  enabled: false
   collection: posts
   permalink: /page/:num/
   per_page: 5
@@ -18,24 +18,10 @@ pagination:
   <div class="header-bar">
     <h1>{{ site.blog_name }}</h1>
     <h2>{{ site.blog_description }}</h2>
+    <em>coming soon</em>
   </div>
 
-  {% if site.display_tags %}
-  <div class="tag-list">
-    <ul class="p-0 m-0">
-      {% for tag in site.display_tags %}
-        <li>
-          <i class="fas fa-hashtag fa-sm"></i> <a href="{{ tag | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
-        </li>
-        {% unless forloop.last %}
-          <p>&bull;</p>
-        {% endunless %}
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-
-  <ul class="post-list">
+  <!--<ul class="post-list">
     {% for post in paginator.posts %}
 
     {% if post.external_source == blank %}
@@ -93,7 +79,7 @@ pagination:
     </li>
 
     {% endfor %}
-  </ul>
+  </ul> -->
 
   {% include pagination.html %}
 
