@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2024-01-29 15:59:00-0400
 inline: true
 ---
 
-A simple inline announcement.
+Our paper on [online safety certification for systems in dynamics environments](https://arxiv.org/abs/2310.19256) was accepted to ICRA 2024!
