@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle_job: AI/ML Research Scientist at Aurora Flight Sciences
+subtitle_job: PhD Student at MIT MechE & WHOI
 subtitle_interests: Autonomy, Robotics, Controls, Machine Learning
 
 profile:
@@ -16,8 +16,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I graduated from UC Berkeley in May 2022 with a degree in Mechanical Engineering and a minor in Aerospace Engineering. During my undergraduate career, I was fortunate to conduct research at [TAFLab](https://taflab.berkeley.edu/) with Dr. Reza Alam and [HiPeRLab](https://hiperlab.berkeley.edu/) with Dr. Mark Mueller, as well as visiting research at the University of Oxford's [Computational Biology Group](http://www.cs.ox.ac.uk/research/compbio/). I've also worked at Intel Corporation as an AI Intern and a Deep Learning Engineering Intern. For more information, take a look at my [CV](assets/pdf/Karan_Mahesh_CV.pdf).
+I'm a Ph.D. student in the MIT–MechE/WHOI Joint Program, where I research multi-agent planning and autonomy. I'm fortunate to be advised by Dr. Michael Benjamin in [MIT’s Marine Autonomy Laboratory](https://lamss.mit.edu/pavlab/pmwiki/pmwiki.php). I graduated from UC Berkeley in May 2022 with a B.S. in Mechanical Engineering and a minor in Aerospace Engineering. As an undergraduate, I conducted research in [TAFLab](https://taflab.berkeley.edu/) with Dr. Reza Alam, [HiPeRLab](https://hiperlab.berkeley.edu/) with Dr. Mark Mueller, and completed a visiting research internship with the University of Oxford’s [Computational Biology Group](http://www.cs.ox.ac.uk/research/compbio/). I've also held roles at Intel Corporation as an AI Intern and Deep Learning Engineering Intern. You can find more details in my [CV](assets/pdf/Karan_Mahesh_CV.pdf).
 
-Outside of work, I'm passionate about impactful, ethical entrepreneurship and connecting people through strong and safe mobility networks.
+Beyond research, I'm passionate about ethical entrepreneurship and creating strong, safe mobility networks that bring people together.
 
-In my free time, I like working on household DIY projects, cooking through [Snoop Dogg's cookbook](https://www.amazon.com/Crook-Cook-Platinum-Recipes-Kitchen/dp/1452179611), and finding deals on eBay.
+In my free time, I enjoy tackling DIY projects, cooking my way through [Snoop Dogg’s cookbook](https://www.amazon.com/Crook-Cook-Platinum-Recipes-Kitchen/dp/1452179611), and hunting for great deals on eBay.
