@@ -21,6 +21,11 @@ jobs:
       with:
         ruby-version: '3.0.2'
         bundler-cache: true
+    - name: Install Ruby gems
+      run: |
+        export BUNDLE_FORCE_RUBY_PLATFORM=true
+        bundle config set path 'vendor/bundle'
+        bundle install
     - name: Install deps
       run: |
         npm install -g mermaid.cli
