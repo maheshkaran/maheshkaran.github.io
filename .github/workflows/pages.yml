@@ -16,9 +16,9 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04  # Avoids ruby/setup-ruby bug on ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup Ruby
@@ -27,23 +27,23 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
+      - name: Install dependencies
+        run: bundle install
+
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v3
-
-      - name: Install dependencies
-        run: bundle install
 
       - name: Build site with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
 
-      - name: Upload site artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-          name: github-pages
+          name: github-pages  # ✅ Explicit
 
   deploy:
     runs-on: ubuntu-22.04
