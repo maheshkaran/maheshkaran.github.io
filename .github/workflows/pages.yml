@@ -2,12 +2,11 @@ name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
-    branches: ["master"]
+    branches: [master]
   workflow_dispatch:
 
-# 🔴 Add actions: read so deploy-pages can fetch the artifact from this run
 permissions:
-  actions: read
+  actions: read          # 👈 lets deploy read artifacts from this run
   contents: read
   pages: write
   id-token: write
@@ -20,8 +19,8 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -29,25 +28,37 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
+      # Configure Pages (must run before build so we can use base_path)
       - name: Configure GitHub Pages
         id: pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
 
-      - name: Build site with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
+        run: |
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
-      # ✅ Ensure artifact exists & is named exactly "github-pages"
+      # Upload the built site as the Pages artifact for THIS run
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
           name: github-pages
 
-      # (Optional) quick debug to confirm what got built
-      - name: List built files (debug)
-        run: find _site | head -n 100
+      # 🔎 Debug: confirm artifact exists for this run_id
+      - name: List artifacts for this run (debug)
+        env:
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "GITHUB_RUN_ID=$RUN_ID"
+          curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/$GH_REPO/actions/runs/$RUN_ID/artifacts | tee artifacts.json
+          echo "---- artifact names ----"
+          jq -r '.artifacts[].name' artifacts.json || true
 
   deploy:
     runs-on: ubuntu-22.04
@@ -58,4 +69,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4   # ⬅️ upgrade from v1
