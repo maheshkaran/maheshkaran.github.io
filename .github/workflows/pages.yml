@@ -5,7 +5,9 @@ on:
     branches: ["master"]
   workflow_dispatch:
 
+# 🔴 Add actions: read so deploy-pages can fetch the artifact from this run
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -27,9 +29,6 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
-      - name: Install dependencies
-        run: bundle install
-
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v3
@@ -39,11 +38,16 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      # ✅ Ensure artifact exists & is named exactly "github-pages"
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-          name: github-pages  # ✅ Explicit
+          name: github-pages
+
+      # (Optional) quick debug to confirm what got built
+      - name: List built files (debug)
+        run: find _site | head -n 100
 
   deploy:
     runs-on: ubuntu-22.04
