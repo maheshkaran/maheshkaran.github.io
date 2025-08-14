@@ -59,7 +59,7 @@ github_username: maheshkaran # your GitHub user name
 gitlab_username: # your GitLab user name
 twitter_username: KaranMahesh14 # your Twitter handle
 linkedin_username: karan-mahesh # your LinkedIn user name
-scholar_userid: # your Google Scholar ID
+scholar_userid: zaet6yAAAAAJ # your Google Scholar ID
 orcid_id: # your ORCID ID
 medium_username: # your Medium username
 quora_username: # your Quora username
@@ -71,6 +71,7 @@ keybase_username: # your keybase user name
 wikidata_id: # your wikidata id
 dblp_url: # your DBLP profile url
 stackoverflow_id: #your stackoverflow id
+cv: assets/pdf/Karan_Mahesh_CV.pdf
 
 contact_note:
 # -----------------------------------------------------------------------------
