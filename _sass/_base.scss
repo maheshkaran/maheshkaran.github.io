@@ -210,10 +210,9 @@ blockquote {
         border: none;
         border-radius: 0.2em;
         background-color: var(--global-text-color);
-        color: var(--global-bg-color);
         line-height: 1;
         overflow: hidden;
-        transition-property: background-color, color;
+        transition-property: background-color;
         transition-duration: 0.2s;
         transition-timing-function: ease-in-out;
       }
@@ -222,10 +221,10 @@ blockquote {
         font-weight: 700;
         letter-spacing: 0.03em;
         text-transform: lowercase;
+        color: #000;
       }
       &.cv-social-link:hover .cv-social-badge {
         background-color: var(--global-theme-color);
-        color: var(--global-bg-color);
       }
     }
   }
@@ -308,10 +307,9 @@ blockquote {
         border: none;
         border-radius: 0.2em;
         background-color: var(--global-text-color);
-        color: var(--global-bg-color);
         line-height: 1;
         overflow: hidden;
-        transition-property: background-color, color;
+        transition-property: background-color;
         transition-duration: 0.2s;
         transition-timing-function: ease-in-out;
       }
@@ -320,10 +318,10 @@ blockquote {
         font-weight: 700;
         letter-spacing: 0.03em;
         text-transform: lowercase;
+        color: #000;
       }
       &.cv-social-link:hover .cv-social-badge {
         background-color: var(--global-theme-color);
-        color: var(--global-bg-color);
       }
     }
   }
