@@ -7,7 +7,7 @@ subtitle_interests: Autonomy, Robotics, Controls, Machine Learning
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: Karan_Mahesh_Headshot.png
   image_cicular: false # crops the image to make it circular
   address:
 

@@ -153,4 +153,41 @@
         "@context": "https://schema.org"
       }
     </script>
+{%- if page.url == "/" %}
+    {%- capture person_name -%}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}{%- endcapture -%}
+    {%- assign person_name = person_name | strip | replace: "  ", " " -%}
+    <!-- Person entity for the Google Knowledge Graph -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "{{ person_name }}",
+        "url": "{{ '/' | absolute_url }}",
+        "image": "{{ site.og_image | absolute_url }}",
+        {% if site.person_job_title -%}"jobTitle": "{{ site.person_job_title }}",{%- endif %}
+        {% if site.person_works_for -%}
+        "worksFor": {
+          "@type": "Organization",
+          "name": "{{ site.person_works_for }}"{% if site.person_works_for_url %},
+          "sameAs": "{{ site.person_works_for_url }}"{% endif %}
+        },
+        {%- endif %}
+        {% if site.person_alumni_of -%}
+        "alumniOf": [
+          {%- for school in site.person_alumni_of -%}
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "{{ school.name }}"{% if school.url %},
+            "sameAs": "{{ school.url }}"{% endif %}
+          }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ],
+        {%- endif %}
+        {% if sameaslinks != blank -%}
+        "sameAs": {{ sameaslinks }},
+        {%- endif %}
+        "knowsAbout": ["Robotics", "Autonomy", "Control Theory", "Machine Learning", "Multi-Agent Systems"]
+      }
+    </script>
+{%- endif %}
 {%- endif %}

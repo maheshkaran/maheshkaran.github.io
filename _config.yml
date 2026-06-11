@@ -47,9 +47,19 @@ max_width: 800px
 # Open Graph & Schema.org
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: /assets/img/Karan_Mahesh_Headshot.png # The site-wide (default for all links) Open Graph preview image
+
+# Structured data for the Person entity (used by Schema.org / Google Knowledge Graph)
+person_job_title: PhD Student
+person_works_for: Massachusetts Institute of Technology
+person_works_for_url: https://www.mit.edu/
+person_alumni_of: # list of schools, most recent first
+  - name: Woods Hole Oceanographic Institution
+    url: https://www.whoi.edu/
+  - name: University of California, Berkeley
+    url: https://www.berkeley.edu/
 
 # -----------------------------------------------------------------------------
 # Social integration
